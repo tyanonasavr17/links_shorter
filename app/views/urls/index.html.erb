@@ -1,0 +1,12 @@
+<h1>Сокращение ссылки</h1>
+
+<%= form_with(model: @url, url: urls_path, method: :post) do |form| %>
+  <div>
+    <%= form.label :original_url %>
+    <%= form.text_field :original_url, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit 'Сократить' %>
+  </div>
+<% end %>
