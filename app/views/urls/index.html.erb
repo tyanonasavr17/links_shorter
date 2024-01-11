@@ -3,9 +3,11 @@
 <%= form_with(model: @url, url: urls_path, method: :post) do |form| %>
   <div>
     <%= form.label :original_url %>
-    <%= form.text_field :original_url, required: true %>
+    <br>
+    <%= form.text_field :original_url, required: true, title: 'Введите ссылку в формате http(s)://...' %>
   </div>
 
+  <br><br>
   <div>
     <%= form.submit 'Сократить' %>
   </div>

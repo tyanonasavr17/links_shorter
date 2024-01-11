@@ -1,0 +1,15 @@
+version: "3"
+services:
+  web:
+    build: .
+    command: "rails s -b 0.0.0.0"
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: "sqlite3:/usr/src/app/db/development.sqlite3"
+    volumes:
+      - ".:/usr/src/app"
+    env_file:
+      - ./.env
+    tty: true
+    stdin_open: true
