@@ -1,6 +1,5 @@
-# app/controllers/urls_controller.rb
 class UrlsController < ApplicationController
-  before_action :set_url, only: [:show, :stats]
+  before_action :find_url, only: [:show, :stats]
 
   def create
     @url = Url.new(url_params)
@@ -29,7 +28,7 @@ class UrlsController < ApplicationController
 
   private
 
-  def set_url
+  def find_url
     @url = Url.find_by_short_url(params[:short_url])
     render json: { error: 'Длинный URL не найден' }, status: :not_found unless @url
   end
